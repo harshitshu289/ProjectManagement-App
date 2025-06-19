@@ -1,13 +1,18 @@
-
 import axios from "../utils/axios";
 
 export const apiConnector = async (method, url, data = {}, options = {}) => {
   try {
+    const token = localStorage.getItem("token");
+
     const config = {
       method,
       url,
       data,
       withCredentials: true,
+      headers: {
+        ...(options.headers || {}),
+        ...(token ? { Authorization: `Bearer ${token}` } : {}),
+      },
       ...options,
     };
 
