@@ -18,7 +18,7 @@ const PORT = process.env.PORT || 5000;
 app.use(express.json());
 app.use(cookieParser()); 
 app.use(cors({
-  origin: "https://project-management-app-frontend-3brfz3wvi.vercel.app",
+  origin: "https://project-management-app-frontend-topaz.vercel.app",
   credentials: true,
    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
