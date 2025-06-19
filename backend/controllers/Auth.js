@@ -98,17 +98,19 @@ export const login = async (req, res) => {
       expiresIn: "7d",
     });
 
+    // ✅ Set token in httpOnly cookie
     res.cookie("token", token, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production", 
-      sameSite: "Lax", 
-      maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "Lax",
+      maxAge: 7 * 24 * 60 * 60 * 1000,
     });
 
-   
+    // ✅ ALSO send token in JSON response
     res.status(200).json({
       success: true,
       message: "Login successful",
+      token, // ✅ Send token here
       user: {
         id: user._id,
         name: user.name,
@@ -116,9 +118,7 @@ export const login = async (req, res) => {
       },
     });
   } catch (err) {
-    res
-      .status(400)
-      .json({ success: false, message: err.message });
+    res.status(400).json({ success: false, message: err.message });
   }
 };
 
