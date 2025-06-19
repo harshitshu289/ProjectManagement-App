@@ -19,7 +19,9 @@ app.use(express.json());
 app.use(cookieParser()); 
 app.use(cors({
   origin: "https://project-management-app-frontend-3brfz3wvi.vercel.app",
-  credentials: true                 
+  credentials: true,
+   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
 }));
 
 // Routes
