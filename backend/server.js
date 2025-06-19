@@ -18,7 +18,7 @@ const PORT = process.env.PORT || 5000;
 app.use(express.json());
 app.use(cookieParser()); 
 app.use(cors({
-  origin: "https://project-management-app-frontend-fnddxa7vl.vercel.app",
+  origin: "https://project-management-app-frontend-3brfz3wvi.vercel.app",
   credentials: true                 
 }));
 
